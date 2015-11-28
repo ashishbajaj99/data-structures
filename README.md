@@ -1,7 +1,7 @@
 data-structures
 =============
 
-This code is free to use and abuse as you like - I dont care if you use it for monetory gain, in your project or otherwise. This is an example implmenetation of commonly used data structures in computer science courses commonly taught under "Algorithms and Data Structures". Motivation for this is to make it easy for students learning computer science OR for those preparing for job interviews to have some example references of implmentation.
+This code is free to use and abuse as you like - I dont care if you use it for monetory gain, in your project or otherwise. This is an example implmenetation of commonly used data structures in computer science courses commonly taught under "Algorithms and Data Structures". I chose to implement these in C. Motivation for this is to make it easy for students learning computer science OR for those preparing for job interviews to have some example references of implmentation.
 
 For people utilizing this to learn, I recommend downloading the code and re-writing some of the core functions yourself for practice. Software is never learnt by just looking at examples, its learnt by writing software yourself.
 
@@ -19,7 +19,7 @@ $ ./test-example linked-list bst avl-tree
 
 File Structure and Code
 ============
-TBD
+The asciitree.c file was downloaded from the internet - its not my code. Its a nifty little piece of software for humanly readable representation of a binary tree on a console. For more details see the stackoverflow question here: [how to draw a binary tree to the console](http://stackoverflow.com/questions/801740/c-how-to-draw-a-binary-tree-to-the-console)
 
 License
 ==========
