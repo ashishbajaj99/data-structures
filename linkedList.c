@@ -98,24 +98,29 @@ void removeFromEnd(Node **headAndTail) {
 	Node *tail = headAndTail[1];
 	Node *toDelete = tail, *previous = NULL, *iterator = head;
 
+	// Case #1
+	// Empty list, do nothing
 	if(head == NULL) {
 		return;
 	}
 
-	while(iterator->next != NULL) {
-		previous = iterator;
-		iterator = iterator->next;
-	}
-
-	if(previous != NULL) {
+	// Case #2
+	// Only one node, remove it and return
+	if(iterator->next == NULL) {
+		free(toDelete);
+		head = NULL;
+		tail = NULL;
+	} else {
+	// Case #3
+	// More than one node, iterate and find previous to tail
+		while(iterator->next != NULL) {
+			previous = iterator;
+			iterator = iterator->next;
+		}
 		tail = previous;
 		tail->next = NULL;
 		free(toDelete);
-	} else {
-		head = NULL;
-		tail = NULL;
 	}
-
 
 	headAndTail[0] = head;
 	headAndTail[1] = tail;
@@ -133,6 +138,7 @@ int main(void) {
 	addToEnd(headAndTail, 2);
 	addToEnd(headAndTail, 3);
 	addToEnd(headAndTail, 7);
+	addToStart(headAndTail, 10);
 
 	printList(headAndTail[0]);
 
@@ -142,7 +148,7 @@ int main(void) {
 	removeFromEnd(headAndTail);
 	printList(headAndTail[0]);
 
-	removeFromStart(headAndTail);
+	removeFromEnd(headAndTail);
 	printList(headAndTail[0]);
 
 	return EXIT_SUCCESS;
