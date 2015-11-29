@@ -54,3 +54,26 @@ void addTreeHelper(Tree *head, Tree *toAdd) {
 		}
 	}
 }
+
+Tree *findInTree(Tree *head, int value) {
+	if(head == NULL) {
+		return head;
+	}
+
+	if(head->value == value) {
+		return head;
+	}
+
+	if(value < head->value) {
+		return findInTree(head->left, value);
+	} else {
+		return findInTree(head->right, value);
+	}
+}
+
+Tree *removeFromTree(Tree *head, int value) {
+	Tree *toDelete = findInTree(head, value);
+
+	// WIP: Need to fill in the logic
+	return toDelete;
+}

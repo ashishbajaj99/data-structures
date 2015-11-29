@@ -107,7 +107,8 @@ int testLinkedList(void) {
 }
 
 int testBinarySearchTree(void) {
-	Tree *head = NULL;	
+	Tree *head = NULL;
+	Tree *test = NULL;	
 	printf("Start Test of Binary Search Tree.\n");
 	printf("Initial contents of the tree:\n");
 	print_ascii_tree(head);
@@ -124,6 +125,24 @@ int testBinarySearchTree(void) {
 	printf("\nadd() 1 to the tree\n");	
 	head = addToTree(head, 1);
 	print_ascii_tree(head);
+
+	if( (test = findInTree(head, 3)) == NULL) {
+		printf("\nfind(3) = Value Not Found\n");
+	} else {
+		printf("\nfind(3) = %d\n", test->value);
+	}
+
+	if( (test = findInTree(head, 7)) == NULL) {
+		printf("\nfind(7) = Value Not Found\n");
+	} else {
+		printf("\nfind(7) = %d\n", test->value);
+	}
+
+	if( (test = findInTree(head, 4)) == NULL) {
+		printf("\nfind(4) = Value Not Found\n");
+	} else {
+		printf("\nfind(4) = %d\n", test->value);
+	}
 
 	return EXIT_SUCCESS;
 }

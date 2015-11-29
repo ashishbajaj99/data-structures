@@ -25,5 +25,7 @@ typedef struct tree
 
 /* Function Prototypes */
 Tree *addToTree(Tree *, int);
+Tree *removeFromTree(Tree *, int);
+Tree *findInTree(Tree*, int);
 
 #endif
