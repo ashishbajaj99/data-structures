@@ -32,6 +32,7 @@ LINK_TARGET = test-example
 # List of Object files. One per source file should be listed here.
 OBJS =  linkedList.o \
 		asciiList.o  \
+		binaryTree.o \
 		asciiTree.o  \
 		main.o
 

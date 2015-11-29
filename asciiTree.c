@@ -1,10 +1,21 @@
-#include "asciitree.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include "binaryTree.h"
+#include "asciiTree.h"
 
 //printing tree in ascii
 
 //used for printing next node in the same level,
 //this is the x coordinate of the next char printed
 int print_next;
+
+//adjust gap between left and right nodes
+int gap = 3;
+
+int lprofile[MAX_HEIGHT];
+int rprofile[MAX_HEIGHT];
+
 
 int MIN (int X, int Y)
 {
@@ -37,7 +48,7 @@ asciinode * build_ascii_tree_recursive(Tree * t)
 		node->right->parent_dir = 1;
 	}
 
-	sprintf(node->label, "%d", t->element);
+	sprintf(node->label, "%d", t->value);
 	node->lablen = strlen(node->label);
 
 	return node;

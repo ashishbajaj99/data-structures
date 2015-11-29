@@ -19,6 +19,8 @@
 #include <string.h>
 #include "linkedList.h"
 #include "asciiList.h"
+#include "binaryTree.h"
+#include "asciiTree.h"
 
 /* Function Prototypes */
 int testLinkedList(void);
@@ -60,7 +62,8 @@ int testLinkedList(void) {
 	headAndTail[0] = NULL; //head
 	headAndTail[1] = NULL; //tail
 
-	printf("Contents of starting list:\n");
+	printf("Start Test of Linked List.\n");
+	printf("Initial contents of the list:\n");
 	printList(headAndTail[0]);
 
 	printf("\naddToEnd() 2, 3 and 7 to an empty list\n");
@@ -104,5 +107,23 @@ int testLinkedList(void) {
 }
 
 int testBinarySearchTree(void) {
-	printf("Testing Binary Search Tree\n");
+	Tree *head = NULL;	
+	printf("Start Test of Binary Search Tree.\n");
+	printf("Initial contents of the tree:\n");
+	print_ascii_tree(head);
+
+	printf("\nadd() 3 to the tree\n");
+	head = addToTree(head, 3);
+	print_ascii_tree(head);
+	printf("\nadd() 2 to the tree\n");
+	head = addToTree(head, 2);
+	print_ascii_tree(head);
+	printf("\nadd() 7 to the tree\n");	
+	head = addToTree(head, 7);
+	print_ascii_tree(head);
+	printf("\nadd() 1 to the tree\n");	
+	head = addToTree(head, 1);
+	print_ascii_tree(head);
+
+	return EXIT_SUCCESS;
 }
