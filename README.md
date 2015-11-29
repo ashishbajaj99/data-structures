@@ -1,7 +1,7 @@
 data-structures
 =============
 
-This code is free to use and abuse as you like - feel free to you use it for monetory gain, in your project or otherwise. Go ahead and knock yourself out! This is an example implementation of commonly used data structures in computer science. I chose to implement these in C. Motivation for this is to make it easy for students learning computer science OR for those preparing for job interviews to have some example references of implmentation.
+This code is free to use and abuse as you like - feel free to you use it for monetory gain, in your project or otherwise. Go ahead and knock yourself out! This is an example implementation of commonly used data structures in computer science. I chose to implement these in C. Motivation for this is to make it easy for students learning computer science OR for those preparing for job interviews to have some example references of an implementation.
 
 For people utilizing this to learn, I recommend downloading the code and re-writing some of the core functions yourself for practice. Software is never learnt by just looking at examples, its learnt by writing software yourself.
 
