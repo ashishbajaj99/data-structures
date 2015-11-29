@@ -1,7 +1,7 @@
 data-structures
 =============
 
-This code is free to use and abuse as you like - I dont care if you use it for monetory gain, in your project or otherwise. This is an example implmenetation of commonly used data structures in computer science courses commonly taught under "Algorithms and Data Structures". I chose to implement these in C. Motivation for this is to make it easy for students learning computer science OR for those preparing for job interviews to have some example references of implmentation.
+This code is free to use and abuse as you like - I dont care if you use it for monetory gain, in your project or otherwise. Go ahead and knock yourself out! This is an example implmenetation of commonly used data structures in computer science courses commonly taught under "Algorithms and Data Structures". I chose to implement these in C. Motivation for this is to make it easy for students learning computer science OR for those preparing for job interviews to have some example references of implmentation.
 
 For people utilizing this to learn, I recommend downloading the code and re-writing some of the core functions yourself for practice. Software is never learnt by just looking at examples, its learnt by writing software yourself.
 
@@ -15,6 +15,24 @@ $ make
 $ ./test-example linked-list
 $ ./test-example bst
 $ ./test-example linked-list bst avl-tree
+```
+Here are my tools versions, in case you are using different versions, please make changes in the Makefile (its fairly well documented):
+```
+$ make --version
+GNU Make 3.81
+Copyright (C) 2006  Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.
+There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE.
+
+This program built for i386-apple-darwin11.3.0
+$ gcc --version
+gcc --version
+Configured with: --prefix=/Applications/Xcode.app/Contents/Developer/usr --with-gxx-include-dir=/usr/include/c++/4.2.1
+Apple LLVM version 7.0.0 (clang-700.1.76)
+Target: x86_64-apple-darwin14.5.0
+Thread model: posix
+
 ```
 
 File Structure and Code

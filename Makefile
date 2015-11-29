@@ -31,6 +31,7 @@ LINK_TARGET = test-example
 
 # List of Object files. One per source file should be listed here.
 OBJS =  linkedList.o \
+				asciiList.o  \
 				main.o
 
 # $(macro-name) does a textual replacement in Makefiles
@@ -40,7 +41,7 @@ REBUILDABLES = $(OBJS) $(LINK_TARGET)
 # It does this by expressing a dependency on the results of that system,
 # which in turn have their own rules and dependencies.
 all: $(LINK_TARGET)
-	echo all complete
+
 
 # $@ expands to the rule's target, in this case "test-example".
 # $^ expands to the rule's dependencies, in this case the list of object files
@@ -58,15 +59,20 @@ $(LINK_TARGET): $(OBJS)
 # Clean is a dummy target to clean up all the temporary files generated via the build process
 clean: 
 	rm -f $(REBUILDABLES)
-	echo clean complete
 
 # Clean is a dummy target to clean up all the temporary files generated via the build process
 clean-all: 
 	rm -f $(REBUILDABLES) *~ *.DS_Store* *.d *.log
-	echo clean complete
 
 # Automated dependency generator
 # First Make will include all the .d files and generate them
 %.d: %.c
 	$(CC) $(DEP_FLAGS) $<
+
+# Include all the .d files only when NOT cleaning
+ifneq ($(MAKECMDGOALS), clean)
+ifneq ($(MAKECMDGOALS), clean-all)
 -include $(OBJS:.o=.d)
+endif
+endif
+

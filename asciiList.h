@@ -14,19 +14,10 @@
 // # WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR
 // # THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-#ifndef LINKED_LIST_H
-#define LINKED_LIST_H
-
-typedef struct node
-{
-	int value;
-	struct node *next;
-} Node;
+#ifndef ASCII_LIST_H
+#define ASCII_LIST_H
 
 /* Function Prototypes */
-void addToStart(Node **, int);
-void addToEnd(Node **, int);
-void removeFromStart(Node **);
-void removeFromEnd(Node **);
+void printList(Node *);
 
 #endif

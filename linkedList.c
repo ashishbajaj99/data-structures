@@ -14,33 +14,10 @@
 // # WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR
 // # THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-// # A Makefile for the data-structures ANSI C project
-// # This Makefile demonstrates and explains:
-// # 1. Macros
-// # 2. Targets and Dummy Targets
-// # 3. Dependencies, and Pattern Rules
-
-#include <stdio.h>
 #include <stdlib.h>
 #include "linkedList.h"
 
 /* Function Definitions */
-void printList(Node *head) {
-	int numNodesInALine = 8;
-	int i = 0;
-	while(head != NULL) {
-		printf("| %d | 0x%08x | --> ", head->value, (int)head->next);
-		head = head->next;
-		i++;
-		if(i%numNodesInALine == 0) {
-			printf("\n");
-		}
-	}
-	printf("NULL\n");
-
-	return;
-}
-
 void addToStart(Node **headAndTail, int value) {
 	Node *head = headAndTail[0];
 	Node *tail = headAndTail[1];

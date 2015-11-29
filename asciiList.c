@@ -14,19 +14,21 @@
 // # WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR
 // # THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-#ifndef LINKED_LIST_H
-#define LINKED_LIST_H
+#include <stdio.h>
+#include "linkedList.h"
 
-typedef struct node
-{
-	int value;
-	struct node *next;
-} Node;
+void printList(Node *head) {
+	int numNodesInALine = 8;
+	int i = 0;
+	while(head != NULL) {
+		printf("| %d | 0x%08x | --> ", head->value, (int)head->next);
+		head = head->next;
+		i++;
+		if(i%numNodesInALine == 0) {
+			printf("\n");
+		}
+	}
+	printf("NULL\n");
 
-/* Function Prototypes */
-void addToStart(Node **, int);
-void addToEnd(Node **, int);
-void removeFromStart(Node **);
-void removeFromEnd(Node **);
-
-#endif
+	return;
+}

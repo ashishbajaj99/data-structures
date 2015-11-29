@@ -14,15 +14,10 @@
 // # WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR
 // # THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-// # A Makefile for the data-structures ANSI C project
-// # This Makefile demonstrates and explains:
-// # 1. Macros
-// # 2. Targets and Dummy Targets
-// # 3. Dependencies, and Pattern Rules
-
 #include <stdio.h>
 #include <stdlib.h>
 #include "linkedList.h"
+#include "asciiList.h"
 
 /* Main Test Function */
 int main(void) {
