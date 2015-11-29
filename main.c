@@ -16,32 +16,93 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "linkedList.h"
 #include "asciiList.h"
 
+/* Function Prototypes */
+int testLinkedList(void);
+int testBinarySearchTree(void);
+int errorMsg(void);
+
 /* Main Test Function */
-int main(void) {
+int main(int argc, char *argv[]) {
 
-	Node *headAndTail[2];
+	int (*functionLUT[])(void) = {
+		testLinkedList,
+		testBinarySearchTree
+	};
 
+	if(argc != 2) {
+		return errorMsg();
+	}
+
+	if(strcmp("linked-list", argv[1]) == 0) {
+		return functionLUT[0]();
+	}
+
+	if(strcmp("binary-search-tree", argv[1]) == 0) {
+		return functionLUT[1]();
+	}
+
+	return errorMsg();
+}
+
+int errorMsg(void) {
+	printf("Usage: ./test-example <data-structure-name>\n");
+	printf("Valid Inputs for <data-structure-name>: linked-list, binary-search-tree\n");
+	printf("\nExample: ./test-example linked-list\n");
+	return EXIT_FAILURE;
+}
+
+int testLinkedList(void) {
+	Node *headAndTail[2];	
 	headAndTail[0] = NULL; //head
 	headAndTail[1] = NULL; //tail
 
+	printf("Contents of starting list:\n");
+	printList(headAndTail[0]);
+
+	printf("\naddToEnd() 2, 3 and 7 to an empty list\n");
 	addToEnd(headAndTail, 2);
+	printList(headAndTail[0]);
 	addToEnd(headAndTail, 3);
+	printList(headAndTail[0]);
 	addToEnd(headAndTail, 7);
-	addToStart(headAndTail, 10);
-
 	printList(headAndTail[0]);
 
+	printf("\nremoveFromEnd() three times to make the list empty again\n");
+	removeFromEnd(headAndTail);
+	printList(headAndTail[0]);
+	removeFromEnd(headAndTail);
+	printList(headAndTail[0]);
 	removeFromEnd(headAndTail);
 	printList(headAndTail[0]);
 
-	removeFromEnd(headAndTail);
+	printf("\naddToStart() 2, 3 and 7 to an empty list\n");
+	addToStart(headAndTail, 2);
+	printList(headAndTail[0]);
+	addToStart(headAndTail, 3);
+	printList(headAndTail[0]);
+	addToStart(headAndTail, 7);
 	printList(headAndTail[0]);
 
-	removeFromEnd(headAndTail);
+	printf("\nremoveFromStart() three times to make the list empty again\n");
+	removeFromStart(headAndTail);
 	printList(headAndTail[0]);
+	removeFromStart(headAndTail);
+	printList(headAndTail[0]);
+	removeFromStart(headAndTail);
+	printList(headAndTail[0]);
+
+	printf("\n Test error handling: removeFromEnd() and removeFromStart() on empty list\n");
+	removeFromEnd(headAndTail);
+	removeFromStart(headAndTail);
+	printf("\n Testing Completed - No Errors\n");
 
 	return EXIT_SUCCESS;
+}
+
+int testBinarySearchTree(void) {
+	printf("Testing Binary Search Tree\n");
 }

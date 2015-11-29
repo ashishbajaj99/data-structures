@@ -31,8 +31,9 @@ LINK_TARGET = test-example
 
 # List of Object files. One per source file should be listed here.
 OBJS =  linkedList.o \
-				asciiList.o  \
-				main.o
+		asciiList.o  \
+		asciiTree.o  \
+		main.o
 
 # $(macro-name) does a textual replacement in Makefiles
 REBUILDABLES = $(OBJS) $(LINK_TARGET)
