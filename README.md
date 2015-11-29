@@ -14,7 +14,6 @@ $ cd data-structures
 $ make
 $ ./test-example linked-list
 $ ./test-example bst
-$ ./test-example linked-list bst avl-tree
 ```
 Here are my tools versions, in case you are using different versions, please make changes in the Makefile (its fairly well documented):
 ```
