@@ -38,12 +38,15 @@ Thread model: posix
 File Structure and Code
 ============
 `main.c` - This contains the entry point to test the data-structure code.
+
 `asciiList.c/.h` - This contains functions to print the contents of a linked list to a console.
+
 `asciiTree.c/.h` - This contains functions to print the contents of a binary search tree to a console.
+
 `linkedList.c/.h` - This contains functions to add/remove/find/clear linked list.
 
 
-Note: The asciitree.c file was downloaded from the internet - its not my code. Its a nifty little piece of software for humanly readable representation of a binary tree on a console. For more details see the stackoverflow question here: [how to draw a binary tree to the console](http://stackoverflow.com/questions/801740/c-how-to-draw-a-binary-tree-to-the-console)
+Note: The `asciitree.c/.h` files were downloaded from the internet - its not my code. Its a nifty little piece of software for humanly readable representation of a binary tree on a console. For more details see the stackoverflow question here: [how to draw a binary tree to the console](http://stackoverflow.com/questions/801740/c-how-to-draw-a-binary-tree-to-the-console)
 
 License
 ==========
