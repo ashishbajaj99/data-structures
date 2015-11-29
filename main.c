@@ -43,7 +43,7 @@ int main(int argc, char *argv[]) {
 		return functionLUT[0]();
 	}
 
-	if(strcmp("binary-search-tree", argv[1]) == 0) {
+	if(strcmp("bst", argv[1]) == 0) {
 		return functionLUT[1]();
 	}
 
