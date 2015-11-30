@@ -58,7 +58,7 @@ $(LINK_TARGET): $(OBJS)
 %.o: %.c
 	$(CC) $(COMPILE_FLAGS) $< -o $@ 
 
-# Clean is a dummy target to clean up all the temporary files generated via the build process
+# Clean is a dummy target to clean up build files generated via the build process
 clean: 
 	rm -f $(REBUILDABLES)
 
