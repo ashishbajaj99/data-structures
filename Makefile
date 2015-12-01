@@ -35,6 +35,7 @@ OBJS =  linkedList.o \
 		binaryTree.o \
 		asciiTree.o  \
 		queue.o      \
+		sorting.o    \
 		main.o
 
 # $(macro-name) does a textual replacement in Makefiles

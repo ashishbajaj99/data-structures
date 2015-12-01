@@ -21,10 +21,12 @@
 #include "asciiList.h"
 #include "binaryTree.h"
 #include "asciiTree.h"
+#include "sorting.h"
 
 /* Function Prototypes */
 int testLinkedList(void);
 int testBinarySearchTree(void);
+int testSorting(void);
 int errorMsg(void);
 
 /* Main Test Function */
@@ -32,7 +34,8 @@ int main(int argc, char *argv[]) {
 
 	int (*functionLUT[])(void) = {
 		testLinkedList,
-		testBinarySearchTree
+		testBinarySearchTree,
+		testSorting
 	};
 
 	if(argc != 2) {
@@ -47,14 +50,38 @@ int main(int argc, char *argv[]) {
 		return functionLUT[1]();
 	}
 
+	if(strcmp("sort", argv[1]) == 0) {
+		return functionLUT[2]();
+	}
+
 	return errorMsg();
 }
 
 int errorMsg(void) {
 	printf("Usage: ./test-example <data-structure-name>\n");
-	printf("Valid Inputs for <data-structure-name>: linked-list, binary-search-tree\n");
+	printf("Valid Inputs for <data-structure-name>: linked-list, binary-search-tree, sort\n");
 	printf("\nExample: ./test-example linked-list\n");
 	return EXIT_FAILURE;
+}
+
+int testSorting(void) {
+	int i;
+	int a[9] = {12, 1, 4, 0, 55, 1, 3, 19, 20};
+
+	printf("starting sort of 9 element array: ");
+	for(i=0; i<9; i++) {
+		printf("%d, ", a[i]);
+	}
+	printf("\n");
+
+	mergeSort(a, 9);
+
+	printf("output of merge sort: ");
+	for(i=0; i<9; i++) {
+		printf("%d, ", a[i]);
+	}
+	printf("\n");	
+	return EXIT_SUCCESS;
 }
 
 int testLinkedList(void) {

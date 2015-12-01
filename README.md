@@ -14,6 +14,7 @@ $ cd data-structures
 $ make
 $ ./test-example linked-list
 $ ./test-example bst
+$ ./test-example sort
 ```
 Here are my tools versions, in case you are using different versions, please make changes in the Makefile (its fairly well documented):
 ```
@@ -42,7 +43,13 @@ File Structure and Code
 
 `asciiTree.c/.h` - This contains functions to print the contents of a binary search tree to a console.
 
-`linkedList.c/.h` - This contains functions to add/remove/find/clear linked list.
+`linkedList.c/.h` - This contains functions to addToFront/addToEnd/removeFromFront/removeFromEnd for a linked list.
+
+`queue.c/.h' - This contains function to enqueue/dequeue/findInQueue for a Queue implemented as a linked list. This function is used for the breathFirstSearch traversal in a Binary Search Tree
+
+`binaryTree.c/.h` - This contains functions to add/remove/findInTree/Depth First Search (inOrder, preOrder, postOrder)/bredthFirstSearch on a binary search tree. The remove function is the most complex.
+
+`sorting.c/.h` - This contains only the mergeSort function. Other sorting functions are not implemented currently.
 
 
 Note: The `asciitree.c/.h` files were downloaded from the internet - its not my code. Its a nifty little piece of software for humanly readable representation of a binary tree on a console. For more details see the stackoverflow question here: [how to draw a binary tree to the console](http://stackoverflow.com/questions/801740/c-how-to-draw-a-binary-tree-to-the-console)
