@@ -200,3 +200,15 @@ Tree *removeFromTree(Tree *head, int value) {
 	return head;
 
 }
+
+int getTreeDepth(Tree *head, int depth) {
+	int leftDepth, rightDepth;
+
+	if(head == NULL) {
+		return depth;
+	}
+
+	leftDepth = getTreeDepth(head->left, depth++);
+	rightDepth = getTreeDepth(head->right, depth++);
+	return max(leftDepth, rightDepth);
+}

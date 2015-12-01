@@ -193,7 +193,7 @@ int testBinarySearchTree(void) {
 		printf("\nfindParentOfNode(%d) = %d\n", test[0]->value, test[1]->value);
 	}
 
-
+	printf("Depth of the tree = %d\n", getTreeDepth(head, 0));
 	/* Delete Order: 1, 3, 12, 8, 5 */
 	printf("\nbefore removing any items\n");
 	print_ascii_tree(head);		
@@ -212,6 +212,9 @@ int testBinarySearchTree(void) {
 	printf("\nremove() 5 from the tree\n");	
 	head = removeFromTree(head, 5);
 	print_ascii_tree(head);			
-
+	printf("\nremove() 11 from the tree\n");	
+	head = removeFromTree(head, 11);
+	print_ascii_tree(head);				
+	printf("Depth of the tree = %d\n", getTreeDepth(head, 0));
 	return EXIT_SUCCESS;
 }

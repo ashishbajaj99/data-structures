@@ -29,5 +29,12 @@ Tree *removeFromTree(Tree *, int);
 Tree *findInTree(Tree*, int);
 void findParentInTree(Tree *, Tree *, int, Tree **);
 void getLeftMostNode(Tree *, Tree *, Tree **);
+int getTreeDepth(Tree *, int);
+
+/* Macros */
+#define max(a,b) \
+   ({ __typeof__ (a) _a = (a); \
+       __typeof__ (b) _b = (b); \
+     _a > _b ? _a : _b; })
 
 #endif
