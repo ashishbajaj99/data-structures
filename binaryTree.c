@@ -260,12 +260,12 @@ void breadthFirstSearch(Tree *head) {
 
 	// Case #2: if tree with single node, process(head) and we are done
 	if( (head->left == NULL) && (head->right == NULL) ) {
-		printf("Processing = %d\n", head->value);
+		printf("Breadth First Processing = %d\n", head->value);
 		return;
 	}
 
 	// Case #3: start the breadthFirstSearch algorithm
-	printf("Processing = %d\n", head->value);
+	printf("Breadth First Processing = %d\n", head->value);
 	enqueue(visitedList, head);
 	if(head->left != NULL) {
 		enqueue(neighborList, head->left);
@@ -276,7 +276,7 @@ void breadthFirstSearch(Tree *head) {
 
 	while(neighborList[0] != NULL) {
 		temp = dequeue(neighborList);
-		printf("Processing = %d\n", temp->value);
+		printf("Breadth First Processing = %d\n", temp->value);
 		enqueue(visitedList, temp);
 		if(findInQueue(visitedList, temp->left) == 0) {
 			if(temp->left != NULL) {

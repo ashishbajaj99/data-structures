@@ -67,8 +67,9 @@ int errorMsg(void) {
 int testSorting(void) {
 	int i;
 	int a[9] = {12, 1, 4, 0, 55, 1, 3, 19, 20};
+	int b[2] = {100, 10};
 
-	printf("starting sort of 9 element array: ");
+	printf("\nstarting sort of 9 element array: ");
 	for(i=0; i<9; i++) {
 		printf("%d, ", a[i]);
 	}
@@ -81,6 +82,21 @@ int testSorting(void) {
 		printf("%d, ", a[i]);
 	}
 	printf("\n");	
+
+	printf("\nstarting sort of 1 element array: ");
+	for(i=0; i<2; i++) {
+		printf("%d, ", b[i]);
+	}
+	printf("\n");
+
+	mergeSort(b, 2);
+
+	printf("output of merge sort: ");
+	for(i=0; i<2; i++) {
+		printf("%d, ", b[i]);
+	}
+	printf("\n");	
+
 	return EXIT_SUCCESS;
 }
 
@@ -256,21 +272,21 @@ int testBinarySearchTree(void) {
 	print_ascii_tree(head);				
 	printf("Depth of the tree = %d\n", getTreeDepth(head, 0));
 	inOrderTraversal(head);
+	breadthFirstSearch(head);		
 
-	printf("singlNodeTree = \n");
+	printf("\nsinglNodeTests start here: \n");
 	print_ascii_tree(singleNodeTree);
 	inOrderTraversal(singleNodeTree);
 
+	printf("\n remove() 1 from tree\n");
 	if(removeFromTree(singleNodeTree, 1) == NULL) {
-		printf("Node Not Found\n");
+		printf("Node Not Found, nothing removed\n");
 	}
-	print_ascii_tree(singleNodeTree);	
 	printf("Depth of the singleNodeTree = %d\n", getTreeDepth(singleNodeTree, 0));	
 
-	printf("Now deleting singleNodeTree\n");
+	printf("\n remove() 100 from tree\n");
 	singleNodeTree = removeFromTree(singleNodeTree, 100);
-	print_ascii_tree(singleNodeTree);	
 	printf("Depth of the singleNodeTree = %d\n", getTreeDepth(singleNodeTree, 0));
-	breadthFirstSearch(head);		
+
 	return EXIT_SUCCESS;
 }
