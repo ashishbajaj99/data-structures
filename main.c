@@ -108,7 +108,15 @@ int testLinkedList(void) {
 
 int testBinarySearchTree(void) {
 	Tree *head = NULL;
+	Tree *singleNodeTree = malloc(sizeof(Tree));
 	Tree *test[2];	
+	if(singleNodeTree == NULL) {
+		exit(EXIT_FAILURE);
+	}
+	singleNodeTree->value = 100;
+	singleNodeTree->left = NULL;
+	singleNodeTree->right = NULL;
+
 	printf("Start Test of Binary Search Tree.\n");
 	printf("Initial contents of the tree:\n");
 	print_ascii_tree(head);
@@ -194,6 +202,9 @@ int testBinarySearchTree(void) {
 	}
 
 	printf("Depth of the tree = %d\n", getTreeDepth(head, 0));
+	inOrderTraversal(head);
+	preOrderTraversal(head);
+	postOrderTraversal(head);	
 	/* Delete Order: 1, 3, 12, 8, 5 */
 	printf("\nbefore removing any items\n");
 	print_ascii_tree(head);		
@@ -216,5 +227,21 @@ int testBinarySearchTree(void) {
 	head = removeFromTree(head, 11);
 	print_ascii_tree(head);				
 	printf("Depth of the tree = %d\n", getTreeDepth(head, 0));
+	inOrderTraversal(head);
+
+	printf("singlNodeTree = \n");
+	print_ascii_tree(singleNodeTree);
+	inOrderTraversal(singleNodeTree);
+
+	if(removeFromTree(singleNodeTree, 1) == NULL) {
+		printf("Node Not Found\n");
+	}
+	print_ascii_tree(singleNodeTree);	
+	printf("Depth of the singleNodeTree = %d\n", getTreeDepth(singleNodeTree, 0));	
+
+	printf("Now deleting singleNodeTree\n");
+	singleNodeTree = removeFromTree(singleNodeTree, 100);
+	print_ascii_tree(singleNodeTree);	
+	printf("Depth of the singleNodeTree = %d\n", getTreeDepth(singleNodeTree, 0));		
 	return EXIT_SUCCESS;
 }

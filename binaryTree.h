@@ -30,6 +30,9 @@ Tree *findInTree(Tree*, int);
 void findParentInTree(Tree *, Tree *, int, Tree **);
 void getLeftMostNode(Tree *, Tree *, Tree **);
 int getTreeDepth(Tree *, int);
+void inOrderTraversal(Tree *);
+void preOrderTraversal(Tree *);
+void postOrderTraversal(Tree *);
 
 /* Macros */
 #define max(a,b) \

@@ -13,7 +13,7 @@
 // # IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, 
 // # WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR
 // # THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
+#include <stdio.h>
 #include <stdlib.h>
 #include "binaryTree.h"
 
@@ -211,4 +211,35 @@ int getTreeDepth(Tree *head, int depth) {
 	leftDepth = getTreeDepth(head->left, depth++);
 	rightDepth = getTreeDepth(head->right, depth++);
 	return max(leftDepth, rightDepth);
+}
+
+
+void inOrderTraversal(Tree *head){
+	if(head == NULL) {
+		return;
+	}
+
+	inOrderTraversal(head->left);
+	printf("Inorder Processing Node = %d\n", head->value);
+	inOrderTraversal(head->right);
+}
+
+void preOrderTraversal(Tree *head){
+	if(head == NULL) {
+		return;
+	}
+
+	printf("Pre-Order Processing Node = %d\n", head->value);
+	preOrderTraversal(head->left);
+	preOrderTraversal(head->right);
+}
+
+void postOrderTraversal(Tree *head){
+	if(head == NULL) {
+		return;
+	}
+
+	postOrderTraversal(head->left);
+	postOrderTraversal(head->right);
+	printf("Post-Order Processing Node = %d\n", head->value);	
 }
