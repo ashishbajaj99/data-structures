@@ -5,7 +5,7 @@ This code is free to use and abuse as you like - feel free to you use it for mon
 
 For people utilizing this to learn, I recommend downloading the code and re-writing some of the core functions yourself for practice. Software is never learnt by just looking at examples, its learnt by writing software yourself.
 
-Download and Executing (on a bash prompt)
+Download and Execute (on a bash prompt)
 ============
 I assume you have gcc, and make installed. If not, get them.
 ```
