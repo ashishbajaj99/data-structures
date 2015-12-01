@@ -45,7 +45,7 @@ File Structure and Code
 
 `linkedList.c/.h` - This contains functions to addToFront/addToEnd/removeFromFront/removeFromEnd for a linked list.
 
-`queue.c/.h' - This contains function to enqueue/dequeue/findInQueue for a Queue implemented as a linked list. This function is used for the breathFirstSearch traversal in a Binary Search Tree
+`queue.c/.h` - This contains function to enqueue/dequeue/findInQueue for a Queue implemented as a linked list. This function is used for the breathFirstSearch traversal in a Binary Search Tree
 
 `binaryTree.c/.h` - This contains functions to add/remove/findInTree/Depth First Search (inOrder, preOrder, postOrder)/bredthFirstSearch on a binary search tree. The remove function is the most complex.
 
