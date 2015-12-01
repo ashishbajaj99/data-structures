@@ -205,6 +205,7 @@ int testBinarySearchTree(void) {
 	inOrderTraversal(head);
 	preOrderTraversal(head);
 	postOrderTraversal(head);	
+	breadthFirstSearch(head);		
 	/* Delete Order: 1, 3, 12, 8, 5 */
 	printf("\nbefore removing any items\n");
 	print_ascii_tree(head);		
@@ -242,6 +243,7 @@ int testBinarySearchTree(void) {
 	printf("Now deleting singleNodeTree\n");
 	singleNodeTree = removeFromTree(singleNodeTree, 100);
 	print_ascii_tree(singleNodeTree);	
-	printf("Depth of the singleNodeTree = %d\n", getTreeDepth(singleNodeTree, 0));		
+	printf("Depth of the singleNodeTree = %d\n", getTreeDepth(singleNodeTree, 0));
+	breadthFirstSearch(head);		
 	return EXIT_SUCCESS;
 }

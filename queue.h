@@ -14,31 +14,20 @@
 // # WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR
 // # THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-#ifndef BINARY_TREE_H
-#define BINARY_TREE_H
-
-typedef struct tree
+#ifndef QUEUE_H
+#define QUEUE_H
+#include "binaryTree.h"
+typedef struct qNode
 {
-	int value;
-	struct tree *left, *right;
-} Tree;
+    Tree *value;
+    struct qNode *next;
+} qNode;
 
 /* Function Prototypes */
-Tree *addToTree(Tree *, int);
-Tree *removeFromTree(Tree *, int);
-Tree *findInTree(Tree*, int);
-void findParentInTree(Tree *, Tree *, int, Tree **);
-void getLeftMostNode(Tree *, Tree *, Tree **);
-int getTreeDepth(Tree *, int);
-void inOrderTraversal(Tree *);
-void preOrderTraversal(Tree *);
-void postOrderTraversal(Tree *);
-void breadthFirstSearch(Tree *);
+void enqueue(qNode **, Tree *);
+Tree *dequeue(qNode **);
+int findInQueue(qNode **, Tree *);
 
-/* Macros */
-#define max(a,b) \
-   ({ __typeof__ (a) _a = (a); \
-       __typeof__ (b) _b = (b); \
-     _a > _b ? _a : _b; })
+/* Function Prototypes */
 
 #endif

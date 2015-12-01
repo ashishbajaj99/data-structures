@@ -16,6 +16,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "binaryTree.h"
+#include "queue.h"
 
 /* Function Prototypes */
 void addTreeHelper(Tree *, Tree *);
@@ -242,4 +243,51 @@ void postOrderTraversal(Tree *head){
 	postOrderTraversal(head->left);
 	postOrderTraversal(head->right);
 	printf("Post-Order Processing Node = %d\n", head->value);	
+}
+
+void breadthFirstSearch(Tree *head) {
+	qNode *neighborList[2], *visitedList[2];
+	Tree *temp, *debug;
+	neighborList[0] = NULL;
+	neighborList[1] = NULL;
+	visitedList[0] = NULL;
+	visitedList[1] = NULL;
+
+	// Case #1: If empty tree, we are done
+	if(head == NULL) {
+		return;
+	}
+
+	// Case #2: if tree with single node, process(head) and we are done
+	if( (head->left == NULL) && (head->right == NULL) ) {
+		printf("Processing = %d\n", head->value);
+		return;
+	}
+
+	// Case #3: start the breadthFirstSearch algorithm
+	printf("Processing = %d\n", head->value);
+	enqueue(visitedList, head);
+	if(head->left != NULL) {
+		enqueue(neighborList, head->left);
+	}
+	if(head->right != NULL) {
+		enqueue(neighborList, head->right);
+	}
+
+	while(neighborList[0] != NULL) {
+		temp = dequeue(neighborList);
+		printf("Processing = %d\n", temp->value);
+		enqueue(visitedList, temp);
+		if(findInQueue(visitedList, temp->left) == 0) {
+			if(temp->left != NULL) {
+				enqueue(neighborList, temp->left);
+			}
+		}
+		if(findInQueue(visitedList, temp->right) == 0) {
+			if(temp->right != NULL) {
+				enqueue(neighborList, temp->right);
+			}
+		}
+	}
+	return;
 }
