@@ -27,5 +27,7 @@ typedef struct tree
 Tree *addToTree(Tree *, int);
 Tree *removeFromTree(Tree *, int);
 Tree *findInTree(Tree*, int);
+void findParentInTree(Tree *, Tree *, int, Tree **);
+void getLeftMostNode(Tree *, Tree *, Tree **);
 
 #endif

@@ -108,41 +108,110 @@ int testLinkedList(void) {
 
 int testBinarySearchTree(void) {
 	Tree *head = NULL;
-	Tree *test = NULL;	
+	Tree *test[2];	
 	printf("Start Test of Binary Search Tree.\n");
 	printf("Initial contents of the tree:\n");
 	print_ascii_tree(head);
 
-	printf("\nadd() 3 to the tree\n");
-	head = addToTree(head, 3);
+	printf("\nadd() 5 to the tree\n");
+	head = addToTree(head, 5);
 	print_ascii_tree(head);
 	printf("\nadd() 2 to the tree\n");
 	head = addToTree(head, 2);
 	print_ascii_tree(head);
-	printf("\nadd() 7 to the tree\n");	
-	head = addToTree(head, 7);
+	printf("\nadd() 12 to the tree\n");	
+	head = addToTree(head, 12);
 	print_ascii_tree(head);
 	printf("\nadd() 1 to the tree\n");	
 	head = addToTree(head, 1);
 	print_ascii_tree(head);
+	printf("\nadd() 8 to the tree\n");	
+	head = addToTree(head, 8);
+	print_ascii_tree(head);
+	printf("\nadd() 4 to the tree\n");	
+	head = addToTree(head, 4);
+	print_ascii_tree(head);
+	printf("\nadd() 3 to the tree\n");	
+	head = addToTree(head, 3);
+	print_ascii_tree(head);
+	printf("\nadd() 10 to the tree\n");	
+	head = addToTree(head, 10);
+	print_ascii_tree(head);
+	printf("\nadd() 9 to the tree\n");	
+	head = addToTree(head, 9);
+	print_ascii_tree(head);	
+	printf("\nadd() 11 to the tree\n");	
+	head = addToTree(head, 11);
+	print_ascii_tree(head);	
+	printf("\nadd() 7 to the tree\n");	
+	head = addToTree(head, 7);
+	print_ascii_tree(head);		
 
-	if( (test = findInTree(head, 3)) == NULL) {
+	if( (test[0] = findInTree(head, 3)) == NULL) {
 		printf("\nfind(3) = Value Not Found\n");
 	} else {
-		printf("\nfind(3) = %d\n", test->value);
+		printf("\nfind(3) = %d\n", test[0]->value);
 	}
 
-	if( (test = findInTree(head, 7)) == NULL) {
+	if( (test[0] = findInTree(head, 7)) == NULL) {
 		printf("\nfind(7) = Value Not Found\n");
 	} else {
-		printf("\nfind(7) = %d\n", test->value);
+		printf("\nfind(7) = %d\n", test[0]->value);
 	}
 
-	if( (test = findInTree(head, 4)) == NULL) {
+	if( (test[0] = findInTree(head, 4)) == NULL) {
 		printf("\nfind(4) = Value Not Found\n");
 	} else {
-		printf("\nfind(4) = %d\n", test->value);
+		printf("\nfind(4) = %d\n", test[0]->value);
 	}
+
+	findParentInTree(head, head, 3, test);
+	if( test[1] == NULL) {
+		printf("\nfindParentOfNode(3) = Value Not Found\n");
+	} else {
+		printf("\nfindParentOfNode(%d) = %d\n", test[0]->value, test[1]->value);
+	}
+
+	findParentInTree(head, head, 5, test);
+	if( test[1] == NULL) {
+		printf("\nfindParentOfNode(5) = Value Not Found\n");
+	} else {
+		printf("\nfindParentOfNode(%d) = %d\n", test[0]->value, test[1]->value);
+	}
+
+	findParentInTree(head, head, 2, test);
+	if( test[1] == NULL) {
+		printf("\nfindParentOfNode(2) = Value Not Found\n");
+	} else {
+		printf("\nfindParentOfNode(%d) = %d\n", test[0]->value, test[1]->value);
+	}
+
+	findParentInTree(head, head, 9, test);
+	if( test[1] == NULL) {
+		printf("\nfindParentOfNode(9) = Value Not Found\n");
+	} else {
+		printf("\nfindParentOfNode(%d) = %d\n", test[0]->value, test[1]->value);
+	}
+
+
+	/* Delete Order: 1, 3, 12, 8, 5 */
+	printf("\nbefore removing any items\n");
+	print_ascii_tree(head);		
+	printf("\nremove() 1 from the tree\n");	
+	head = removeFromTree(head, 1);
+	print_ascii_tree(head);		
+	printf("\nremove() 3 from the tree\n");	
+	head = removeFromTree(head, 3);
+	print_ascii_tree(head);		
+	printf("\nremove() 12 from the tree\n");	
+	head = removeFromTree(head, 12);
+	print_ascii_tree(head);		
+	printf("\nremove() 8 from the tree\n");	
+	head = removeFromTree(head, 8);
+	print_ascii_tree(head);		
+	printf("\nremove() 5 from the tree\n");	
+	head = removeFromTree(head, 5);
+	print_ascii_tree(head);			
 
 	return EXIT_SUCCESS;
 }

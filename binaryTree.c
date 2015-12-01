@@ -71,9 +71,132 @@ Tree *findInTree(Tree *head, int value) {
 	}
 }
 
-Tree *removeFromTree(Tree *head, int value) {
-	Tree *toDelete = findInTree(head, value);
+/** @brief Finds the node that contains the param value
+ *         and updates the nodeAddress and nodeParentAddress
+ *         in the param output
+ *  @param head: The address of the first node of the tree
+ *  @param parent: Used for recursion, caller should pass in head here
+ *  @param value: The value to find in the Tree
+ *  @param output: Array of Tree pointers. 
+ *                   output[0]->nodeWithValue,
+ *                   output[1]->parentOfNodeWithValue
+  *  @return Void, the output param is updated
+ */
+void findParentInTree(Tree *head, Tree *parent, int value, Tree **output) {
 
-	// WIP: Need to fill in the logic
-	return toDelete;
+	if(head == NULL) {
+		output[0] = NULL;
+		output[1] = NULL;
+		return;
+	}
+
+	if(head->value == value) {
+		output[0] = head;
+		output[1] = parent;
+		return;
+	}
+
+	if(value < head->value) {
+		findParentInTree(head->left, head, value, output);
+	} else {
+		findParentInTree(head->right, head, value, output);
+	}
+}
+
+/** @brief Finds the leftMost node relative to the head of subtree
+ *         that is passed into the function.
+ *  @param head: The address of the first node of the tree
+ *  @param parent: Used for recursion, caller should pass in head here
+ *  @param output: Array of Tree pointers. 
+ *                   output[0]->leftMostNode,
+ *                   output[1]->parentOfLeftMostNode
+  *  @return Void, the output param is updated
+ */
+void getLeftMostNode(Tree *head, Tree *parent, Tree **output) {
+	if(head == NULL) {
+		output[0] = NULL;
+		output[1] = NULL;
+		return;
+	}
+
+	if(head->left == NULL) {
+		output[0] = head;
+		output[1] = parent;
+		return;
+	} else {
+		getLeftMostNode(head->left, head, output);
+	}
+}
+
+Tree *removeFromTree(Tree *head, int value) {
+	Tree *toDeleteArray[2];
+	Tree *toDelete, *toDeleteParent;
+	Tree *toReplaceArray[2];
+	Tree *toReplace, *toReplaceParent;
+
+	// Find toDelete and toDeleteParent
+	findParentInTree(head, head, value, toDeleteArray);
+	toDelete = toDeleteArray[0];
+	toDeleteParent = toDeleteArray[1];
+
+	// Various Cases:
+	// Case #1: if empty tree, return empty tree
+	if(head == NULL) {
+		return NULL;
+	}
+
+	// Case #2: if no node found, return NULL, nothing to delete
+	if(toDelete == NULL) {
+		return NULL;
+	}
+
+	// We are ready to go through the various deletion cases that are needed
+	// so that after the deletion, the resultant tree continues to conform
+	// to the rules of the BST
+
+	// Case #3: toDelete has no right child
+	//          In this case, we need to perform the following steps:
+	//          1. Pick toReplace = toDelete->left 
+	if(toDelete->right == NULL) {
+		toReplace = toDelete->left;
+	} else {
+
+	// Case #4a: toDelete has right child, but toDelete->right, doesn't have a leftMostChild
+	//           In this case, we need to perform the following steps:
+	//           1. Pick toReplace = toDelete->right (toReplace has no left child here)
+	//           2. Attach toReplace->left = toDelete->left
+		getLeftMostNode(toDelete->right, toDelete->right, toReplaceArray);
+		toReplace = toReplaceArray[0];
+		toReplaceParent = toReplaceArray[1];
+
+		if(toReplace == toDelete->right) {
+			toReplace->left = toDelete->left;
+		} else {
+
+	// Case #4b: toDelete has right child, and has a leftMostChild
+	//           In this case, we need to perform the following steps:
+	//           1. Pick toReplace = leftMostNode(toDelete->right)
+	//           2. toReplaceParent->left = toReplace->right	
+	//           3. toReplace->left = toDelete->left
+	//           4. toReplace->right = toDelete->right
+			toReplaceParent->left = toReplace->right;
+			toReplace->left = toDelete->left;
+			toReplace->right = toDelete->right;
+		}		
+	}
+
+	// Final Step: Attach toDeleteParent to toReplace based on direction
+	if(toDelete == head) {
+		head = toReplace;
+	} else {
+		if(value < toDeleteParent->value) {
+			toDeleteParent->left = toReplace;
+		} else {
+			toDeleteParent->right = toReplace;
+		}		
+	}
+
+	free(toDelete);
+	return head;
+
 }
